@@ -34,7 +34,7 @@ from ask_panichkina.models import Question, Tag, Answer, Profile, Rate_answer, R
 #	html = "<html><body>%s</body></html>" % output
 #	return HttpResponse(html)
 
-
+questions = Question.objects.all()
 
 def question(request, id):
     data = {
@@ -42,17 +42,17 @@ def question(request, id):
     }
     return HttpResponse(json.dumps(data), content_type = 'application/json')
 
-def index(request, order = ''):
-#   questions =Question.objects.all()
-#    questions = Question.objects.filter(is_deleted=0).order_by('-likes_num')
-    if order == 'best':
-        questions = Question.objects.filter(is_deleted = 0).order_by('-likes_num')
-    else:
-        questions = Question.objects.filter(is_deleted = 0).order_by('-date')
-
-    return render(request,'index.html',{'questions' : questions, 'order':order})
+def home(request):
+    context = {
+        'questions':Question.objects.all()[:10]
+    }
+    return render(request,'index.html',context)
 
 
+
+
+def index (request):
+    return render(request, 'index.html', ())
 
 def signup(request):
     return render(request, 'signup.html',())

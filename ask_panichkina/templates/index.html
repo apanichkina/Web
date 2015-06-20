@@ -2,11 +2,8 @@
 
 {% block main %}
 
- 	    <h2>Tag: {{tag}}</h2>
-        <div class="btn-group" role="group">
-                      <a href="{% url 'index' 'new'%}" class="btn btn-default {% if order == 'new'%} active {% endif %}" role="button">New</a>
-                      <a href="{% url 'index' 'best'%}" class="btn btn-default {% if order == 'best'%} active {% endif %}" role="button">Best</a>
-                </div>
+ 	<h2>Tag: {{tag}}</h2>
+
 
         {% for Question in questions %}
 		<div class = "question row panel panel-default" style="background-color: #ffffff">
@@ -15,11 +12,13 @@
 					<img src="avatar.jpg" class="media-object" style="margin: 5px" width=150 heigth=150 alt=""/>
  				</div>
  				<div align="center">
-					 <h1>{{Question.author}}</h1>
+					 <h1>
+                         sadasd
+                    </h1>
 				</div>
                 <div align="center">
 					<a class="btn btn-inverse" href="" data-liketype="q" data-vote="-" data-id="" data-url="/like">-</a>
-                    <span class="badge">{{ Question.likes_num }}</span>
+                    <span class="badge">10</span>
 					<a class="btn btn-inverse" href="" data-liketype="q" data-vote="+" data-id="" data-url="/like">+</a>
 				</div>
 			</div>

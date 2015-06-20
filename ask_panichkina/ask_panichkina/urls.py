@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from ask_panichkina.views import index, login, signup, ask_question,question
+from ask_panichkina.views import index, login, signup, ask_question
 
 urlpatterns = patterns('',
     # Examples:
@@ -9,11 +9,9 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     #url(r'^helloworld/', 'ask_panichkina.views.helloworld', name='helloworld'),
-    url(r'^(\w*)$', index, name='index'),
-#    url(r'^$', index, name='index'),
+    url(r'^$', index, name='index'),
     url(r'^signup/$', signup, name='signup'),
     url(r'^login/$', login, name='login'),
     url(r'^ask_question/$', ask_question, name='ask_question'),
-    url(r'^question/(\d+)/$', question, name='question'),
-
+    url(r'^question/(\d+)/$', 'ask_panuchkina.views.question', name='question'),
 )
