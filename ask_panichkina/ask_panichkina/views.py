@@ -34,11 +34,6 @@ from ask_panichkina.models import Question, Tag, Answer, Profile, Rate_answer, R
 #	html = "<html><body>%s</body></html>" % output
 #	return HttpResponse(html)
 
-
-# def questions(request):
-
-#   return render(request, 'index.html',())
-
 questions = Question.objects.all()
 
 def question(request, id):
