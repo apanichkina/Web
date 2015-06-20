@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth.models import User
@@ -10,7 +11,7 @@ import hashlib
 import os
 import json
 import datetime
-
+from ask_panichkina.models import Question, Tag, Answer, Profile, Rate_answer, Rate_profile, Rate_question
 #@csrf_exempt
 #def helloworld(request):
 #	output = '<b>Hello World!Broooo</b><br />'
@@ -33,6 +34,23 @@ import datetime
 #	html = "<html><body>%s</body></html>" % output
 #	return HttpResponse(html)
 
+questions = Question.objects.all()
+
+def question(request, id):
+    data = {
+        'id' : int(id),
+    }
+    return HttpResponse(json.dumps(data), content_type = 'application/json')
+
+def home(request):
+    context = {
+        'questions':Question.objects.all()[:10]
+    }
+    return render(request,'index.html',context)
+
+
+
+
 def index (request):
     return render(request, 'index.html', ())
 
@@ -45,11 +63,7 @@ def login(request):
 def ask_question(request):
     return render(request, 'ask_question.html', ())
 
-def question(request, id):
-    data = {
-        'id' : int(id),
-    }
-    return HttpResponse(json.dumps(data), content_type = 'application/json')
+
 
 
 

@@ -5,7 +5,7 @@
  	<h2>Tag: {{tag}}</h2>
 
 
-
+        {% for Question in questions %}
 		<div class = "question row panel panel-default" style="background-color: #ffffff">
 			<div class = "span3">
 				<div align="center">
@@ -17,14 +17,15 @@
                     </h1>
 				</div>
                 <div align="center">
-					<a class="btn btn-inverse" href="" data-liketype="q" data-vote="-" data-id="{{Question.id}}" data-url="/like">-</a>
+					<a class="btn btn-inverse" href="" data-liketype="q" data-vote="-" data-id="" data-url="/like">-</a>
                     <span class="badge">10</span>
-					<a class="btn btn-inverse" href="" data-liketype="q" data-vote="+" data-id="{{Question.id}}" data-url="/like">+</a>
+					<a class="btn btn-inverse" href="" data-liketype="q" data-vote="+" data-id="" data-url="/like">+</a>
 				</div>
 			</div>
 
 			<div class = "span5">
 				<a href="/question?id={{Question.id}}"> <h3>Question_title</h3> </a>
+				<a href="#"> <h3>{{Question.title}}</h3> </a>
 				<hr/>
 				<div class="questiontext">
 					<p>Question_textQuestion_textQuestion_textQuestion_text
@@ -50,7 +51,6 @@
 			</p>
 			</div>
 		</div>
-
 
 
 

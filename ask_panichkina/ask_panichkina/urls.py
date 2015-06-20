@@ -13,4 +13,5 @@ urlpatterns = patterns('',
     url(r'^signup/$', signup, name='signup'),
     url(r'^login/$', login, name='login'),
     url(r'^ask_question/$', ask_question, name='ask_question'),
+    url(r'^question/(\d+)/$', 'ask_panuchkina.views.question', name='question'),
 )

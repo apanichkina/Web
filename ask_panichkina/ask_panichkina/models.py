@@ -20,6 +20,8 @@ class Question(models.Model):
     tags = models.ManyToManyField(Tag)
     likes_num = models.IntegerField(default=0)
     is_deleted = models.BooleanField(default=False)
+    def __unicode__(self):
+        return self.title
 
 class Answer(models.Model):
     author = models.ForeignKey(User)
