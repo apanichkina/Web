@@ -1,0 +1,24 @@
+.authors_or_tags{
+	margin: 25px;
+	min-width: 100px;
+}
+.authors_or_tags li{
+	margin: 5px;
+}
+.blogs {
+    width: 100%;
+    overflow: hidden;
+}
+
+.blogs-left {
+    float: left;
+    width: 635px;
+    border-right: 1px solid #eee;
+    padding-right: 40px;
+}
+
+.blogs-right {
+    float: left;
+    padding-left: 20px;
+    width: 236px;
+}
